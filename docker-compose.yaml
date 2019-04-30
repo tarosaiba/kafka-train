@@ -2,6 +2,8 @@ version: '3'
 services:
   zookeeper:
     image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
 
   kafka:
     image: wurstmeister/kafka
@@ -43,6 +45,17 @@ services:
       ZK_HOST: "zookeeper:2181"
     ports:
       - "9000:9000"
+    depends_on:
+      - "kafka"
+      - "zookeeper"
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager
+    environment:
+      ZK_HOSTS: "zookeeper:2181"
+      APPLICATION_SECRET: "letmein"
+    ports:
+      - "9090:9000"
     depends_on:
       - "kafka"
       - "zookeeper"
