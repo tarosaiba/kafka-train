@@ -29,7 +29,7 @@ services:
       KAFKA_BROKER: "kafka:9092"
       KAFKA_TOPIC: "test_topic"
     depends_on:
-      - "kafka"
+      - "kafka-topic-ui"
 
 
 ## Consumer
@@ -39,7 +39,7 @@ services:
       KAFKA_BROKER: "kafka:9092"
       KAFKA_TOPIC: "test_topic"
     depends_on:
-      - "kafka"
+      - "kafka-topic-ui"
 
 
 # Viewer
