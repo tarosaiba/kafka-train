@@ -16,25 +16,30 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "test_topic:3:1"
+      KAFKA_CREATE_TOPICS: "test_topic:6:1"
     depends_on:
       - "zookeeper"
 
 ## Producer
   producer:
-    image: tarosaiba/kafka-train-producuer
+    image: tarosaiba/kafka-train-producer
     ports:
       - "1323:1323"
     environment:
-        - KAFKA_BROKER: "kafka:9092"
-        - KAFKA_TOPIC: "test_topic"
+      KAFKA_BROKER: "kafka:9092"
+      KAFKA_TOPIC: "test_topic"
+    depends_on:
+      - "kafka"
+
 
 ## Consumer
   consumer:
     image: tarosaiba/kafka-train-consumer
     environment:
-        - KAFKA_BROKER: "kafka:9092"
-        - KAFKA_TOPIC: "test_topic"
+      KAFKA_BROKER: "kafka:9092"
+      KAFKA_TOPIC: "test_topic"
+    depends_on:
+      - "kafka"
 
 
 # Viewer
