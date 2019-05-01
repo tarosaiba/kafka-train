@@ -8,7 +8,7 @@ fi
 BROKER=$1
 TOPIC=$2
 
-docker run --interactive --rm \
+docker run -it --rm \
        confluentinc/cp-kafkacat \
        kafkacat -b ${BROKER}:9092 \
        -t ${TOPIC} \
