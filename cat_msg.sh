@@ -13,4 +13,4 @@ docker run -it --rm \
        kafkacat -b ${BROKER}:9092 \
        -t ${TOPIC} \
        -P -C\
-       -f 'Key (%K bytes): %k\tValue (%S bytes): %s\Partition: %p\tOffset: %o\n'
+       -f 'Key: %k\tValue: %s\Partition: %p\tOffset: %o\n'
