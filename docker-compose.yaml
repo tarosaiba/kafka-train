@@ -49,9 +49,6 @@ services:
     image: tarosaiba/kafka-burrow:latest
     ports:
       - "8888:8000"
-    depends_on:
-      - zookeeper
-      - kafka
     restart: always
     environment:
       KAFKA_SERVER: kafka:9092
