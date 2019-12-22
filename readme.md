@@ -5,6 +5,7 @@
 * easy to learn how kafka (producer+consumer) works
 * easy to run. (what you need to do is only docker-compse up..!!)
 * useful tools to manage kafka&zookeeper
+* See details in [Qiita]()
 
 ![Diagram](diagram.png)
 
@@ -21,7 +22,7 @@
 
 ## Quick start
 
-### start
+### Start
 
 ```
 $ docker-compose up -d
