@@ -42,7 +42,23 @@ services:
       - "kafka-topic-ui"
 
 
-# Viewer
+# Management
+
+## Kafka burrow
+  kafka-burrow:
+    image: tarosaiba/kafka-burrow:latest
+    ports:
+      - "8888:8000"
+    depends_on:
+      - zookeeper
+      - kafka
+    restart: always
+    environment:
+      KAFKA_SERVER: kafka:9092
+      ZOOKEEPER_SERVER: zookeeper:2181
+    depends_on:
+      - "kafka"
+      - "zookeeper"
 
 ## Kafka rest
   kafka-rest:
